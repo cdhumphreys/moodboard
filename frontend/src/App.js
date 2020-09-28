@@ -1,25 +1,43 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import { ThemeProvider, createGlobalStyle, css } from "styled-components";
+import { BrowserRouter, Switch, Route } from "react-router-dom";
+import "./App.css";
+
+import UIDashboard from "./pages/UIDashboard";
+import Home from "./pages/Home";
+
+import Nav from "./components/Nav";
+
+import { darkTheme } from "./Themes";
+
+const GlobalStyles = createGlobalStyle`
+${(props) =>
+  props.theme &&
+  css`
+    body,
+    html {
+      background-color: ${props.theme.primaryBackgroundColour};
+      font-family: ${props.theme.fontFamily};
+    }
+  `}
+`;
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <BrowserRouter>
+      <ThemeProvider theme={darkTheme}>
+        <GlobalStyles />
+        <Nav />
+        <Switch>
+          <Route path="/ui-dashboard">
+            <UIDashboard />
+          </Route>
+          <Route path="/">
+            <Home />
+          </Route>
+        </Switch>
+      </ThemeProvider>
+    </BrowserRouter>
   );
 }
 
