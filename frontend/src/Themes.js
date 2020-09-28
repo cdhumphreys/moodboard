@@ -1,18 +1,28 @@
 const baseTheme = {
-  breakpointSm: 320,
-  breakpointMd: 768,
-  breakpointLg: 1200,
+  // From https://material-ui.com/customization/breakpoints/
+  breakpointXs: 0,
+  breakpointSm: 600,
+  breakpointMd: 960,
+  breakpointLg: 1280,
   breakpointXl: 1920,
   // Margin/Padding in px
+  spacingXs: 3,
   spacingSm: 6,
   spacingMd: 12,
   spacingLg: 24,
   spacingXl: 36,
+  // Grid
+  gridSpacing: 16,
   // Font size in px
   fontSm: 12,
   fontMd: 16,
   fontLg: 24,
   fontXl: 36,
+  // Z-indices
+  zIndexTop: 100,
+  zIndexMiddle: 10,
+  zIndexNormal: 1,
+  zIndexBottom: -1,
 };
 
 const darkThemePrimary = "#37474f";
@@ -23,44 +33,34 @@ export const darkTheme = {
   ...baseTheme,
   fontFamily: "Roboto Mono, monospace",
   primaryBackgroundColour: darkThemePrimary,
+  primaryBorderColour: "#333",
   primaryTextColour: "#eeeeee",
   primaryHighlightColour: "#1976d2",
   shadowLightColour: darkThemeShadowLightColour,
   shadowDarkColour: darkThemeShadowDarkColour,
-  boxShadowSm: `${baseTheme.spacingSm}px ${baseTheme.spacingSm}px ${
+  borderRadius: 5,
+  boxShadowSm: `${baseTheme.spacingXs}px ${baseTheme.spacingXs}px ${
+    2 * baseTheme.spacingXs
+  }px ${darkThemeShadowDarkColour},
+        -${baseTheme.spacingXs}px -${baseTheme.spacingXs}px ${2 * baseTheme.spacingXs}px ${darkThemeShadowLightColour}`,
+  boxShadowMd: `${baseTheme.spacingSm}px ${baseTheme.spacingSm}px ${
     2 * baseTheme.spacingSm
   }px ${darkThemeShadowDarkColour},
-        -${baseTheme.spacingSm}px -${baseTheme.spacingSm}px ${
-    2 * baseTheme.spacingSm
-  }px ${darkThemeShadowLightColour}`,
-  boxShadowMd: `${baseTheme.spacingMd}px ${baseTheme.spacingMd}px ${
+        -${baseTheme.spacingSm}px -${baseTheme.spacingSm}px ${2 * baseTheme.spacingSm}px ${darkThemeShadowLightColour}`,
+  boxShadowLg: `${baseTheme.spacingMd}px ${baseTheme.spacingMd}px ${
     2 * baseTheme.spacingMd
   }px ${darkThemeShadowDarkColour},
-        -${baseTheme.spacingMd}px -${baseTheme.spacingMd}px ${
-    2 * baseTheme.spacingMd
-  }px ${darkThemeShadowLightColour}`,
-  boxShadowLg: `${baseTheme.spacingLg}px ${baseTheme.spacingLg}px ${
-    2 * baseTheme.spacingLg
+        -${baseTheme.spacingMd}px -${baseTheme.spacingMd}px ${2 * baseTheme.spacingMd}px ${darkThemeShadowLightColour}`,
+  boxShadowSmInset: `inset ${baseTheme.spacingXs}px ${baseTheme.spacingXs}px ${
+    2 * baseTheme.spacingXs
   }px ${darkThemeShadowDarkColour},
-        -${baseTheme.spacingLg}px -${baseTheme.spacingLg}px ${
-    2 * baseTheme.spacingLg
-  }px ${darkThemeShadowLightColour}`,
-  boxShadowSmInset: `inset ${baseTheme.spacingSm}px ${baseTheme.spacingSm}px ${
+        -${baseTheme.spacingXs}px -${baseTheme.spacingXs}px ${2 * baseTheme.spacingXs}px ${darkThemeShadowLightColour}`,
+  boxShadowMdInset: `inset ${baseTheme.spacingSm}px ${baseTheme.spacingSm}px ${
     2 * baseTheme.spacingSm
   }px ${darkThemeShadowDarkColour},
-        -${baseTheme.spacingSm}px -${baseTheme.spacingSm}px ${
-    2 * baseTheme.spacingSm
-  }px ${darkThemeShadowLightColour}`,
-  boxShadowMdInset: `inset ${baseTheme.spacingMd}px ${baseTheme.spacingMd}px ${
+        -${baseTheme.spacingSm}px -${baseTheme.spacingSm}px ${2 * baseTheme.spacingSm}px ${darkThemeShadowLightColour}`,
+  boxShadowLgInset: `inset ${baseTheme.spacingMd}px ${baseTheme.spacingMd}px ${
     2 * baseTheme.spacingMd
   }px ${darkThemeShadowDarkColour},
-        -${baseTheme.spacingMd}px -${baseTheme.spacingMd}px ${
-    2 * baseTheme.spacingMd
-  }px ${darkThemeShadowLightColour}`,
-  boxShadowLgInset: `inset ${baseTheme.spacingLg}px ${baseTheme.spacingLg}px ${
-    2 * baseTheme.spacingLg
-  }px ${darkThemeShadowDarkColour},
-        -${baseTheme.spacingLg}px -${baseTheme.spacingLg}px ${
-    2 * baseTheme.spacingLg
-  }px ${darkThemeShadowLightColour}`,
+        -${baseTheme.spacingMd}px -${baseTheme.spacingMd}px ${2 * baseTheme.spacingMd}px ${darkThemeShadowLightColour}`,
 };

@@ -17,6 +17,7 @@ ${(props) =>
     body,
     html {
       background-color: ${props.theme.primaryBackgroundColour};
+      font-family: ${props.theme.fontFamily};
     }
   `}
 `;
